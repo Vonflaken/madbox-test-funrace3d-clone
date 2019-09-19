@@ -14,6 +14,6 @@ public class Rotator : MonoBehaviour
     private void Update()
     {
         float deltaSpeed = _speed * Time.deltaTime;
-        transform.rotation *= Quaternion.Euler(deltaSpeed * _axis.x, deltaSpeed * _axis.y, deltaSpeed * _axis.z);
+        _target.rotation *= Quaternion.Euler(deltaSpeed * _axis.x, deltaSpeed * _axis.y, deltaSpeed * _axis.z);
     }
 }

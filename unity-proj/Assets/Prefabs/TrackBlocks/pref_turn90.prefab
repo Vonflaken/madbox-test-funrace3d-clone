@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4783169504761977995}
   - component: {fileID: 3901028292422866314}
   - component: {fileID: 8605537626296679746}
-  m_Layer: 0
-  m_Name: Arch
+  m_Layer: 11
+  m_Name: pref_turn90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

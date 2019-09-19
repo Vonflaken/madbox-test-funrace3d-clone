@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
     public bool ShouldPlayerMove()
     {
         // Player moves while a pointer is on screen
-        return _levelProgression <= 1f 
+        return _playerScript.CurrentState == Player.State.Playing
+                && _levelProgression <= 1f 
                 && Input.GetMouseButton(0); // This will work in touch devices since Input.simulateMouseWithTouches flag is enabled
     }
 }
