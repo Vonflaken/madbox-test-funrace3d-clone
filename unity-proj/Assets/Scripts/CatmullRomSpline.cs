@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR && !UNITY_CLOUD_BUILD
+using UnityEditor;
+#endif
 
 
 // Interpolation between points with a Catmull-Rom spline
@@ -14,7 +17,7 @@ public class CatmullRomSpline : MonoBehaviour
 
 
     //Display without having to press play
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
 
@@ -33,6 +36,14 @@ public class CatmullRomSpline : MonoBehaviour
             Gizmos.DrawLine(prevPos, pos);
 
             prevPos = pos;
+
+#if UNITY_EDITOR && !UNITY_CLOUD_BUILD
+            // Draw progress text at this point
+            GUIStyle newStyle = new GUIStyle();
+            newStyle.normal.textColor = Color.yellow;
+            Camera guiCamera = Camera.current;
+            UnityEditor.Handles.Label(pos, t.ToString(), newStyle);
+#endif
         }
     }
 
