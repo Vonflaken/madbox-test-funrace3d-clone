@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377923523472364147}
   m_Layer: 0
-  m_Name: pref_trapRotator2
+  m_Name: pref_trapWindmill2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_LocalPosition: {x: -8.7, y: 0.74266, z: -4.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3377923524260437733}
+  - {fileID: 7964327363756909320}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3377923523552433889}
   - component: {fileID: 3377923523552433888}
   - component: {fileID: 3377923523552433903}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 3377923524260437730}
   - component: {fileID: 3377923524260437729}
   m_Layer: 0
-  m_Name: Rotator
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,7 +912,7 @@ Transform:
   m_Children:
   - {fileID: 3377923523552433902}
   - {fileID: 4905341175316400211}
-  m_Father: {fileID: 3377923523472364147}
+  m_Father: {fileID: 7964327363756909320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3377923524260437732
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 3076593527140561275}
   - component: {fileID: 7408038554739054332}
   - component: {fileID: 2934941902542777524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2523,17 +2523,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!1 &5251014725015928684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7964327363756909320}
+  - component: {fileID: 1722924787419485660}
+  m_Layer: 0
+  m_Name: Rotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7964327363756909320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251014725015928684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3377923524260437733}
+  m_Father: {fileID: 3377923523472364147}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1722924787419485660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251014725015928684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9540b76685358c3429aaf3f8208a1c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _speed: 45
+  _axis: {x: 0, y: 1, z: 0}
 --- !u!1001 &572023062516143966
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3377923523472364147}
+    m_TransformParent: {fileID: 7964327363756909320}
     m_Modifications:
     - target: {fileID: 2959129377148864958, guid: e2b0993c33e3dea4b84f9e0023d7eb0f,
         type: 3}
       propertyPath: m_Name
-      value: Rotator
+      value: Base
       objectReference: {fileID: 0}
     - target: {fileID: 2959129377148864955, guid: e2b0993c33e3dea4b84f9e0023d7eb0f,
         type: 3}
@@ -2600,6 +2647,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2959129378725577139, guid: e2b0993c33e3dea4b84f9e0023d7eb0f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2959129378725577148, guid: e2b0993c33e3dea4b84f9e0023d7eb0f,
         type: 3}
       propertyPath: m_Mesh
@@ -2609,6 +2661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939426631719433777, guid: e2b0993c33e3dea4b84f9e0023d7eb0f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 320755166819484574, guid: e2b0993c33e3dea4b84f9e0023d7eb0f,
         type: 3}
