@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Player _playerScript = null;
+    [SerializeField]
+    private CatmullRomSpline _levelTrackSpline = null;
 
-    // Update is called once per frame
+    private float _levelProgression = 0f; // [0-1]
+
     void Update()
     {
-        
+        if (ShouldPlayerMove())
+        {
+            // Make the level progresses forward by the player's speed
+            Vector3 currentDerivative = _levelTrackSpline.DerivativeAt(_levelProgression);
+            _levelProgression += (Time.deltaTime * _playerScript.GetCurrentSpeed() / _levelTrackSpline.SpanCount) / currentDerivative.magnitude;
+
+            _playerScript.MoveTo(_levelTrackSpline.ValueAt(_levelProgression));
+        }
+    }
+    
+    public bool ShouldPlayerMove()
+    {
+        // Player moves while a pointer is on screen
+        return _levelProgression <= 1f 
+                && Input.GetMouseButton(0); // This will work in touch devices since Input.simulateMouseWithTouches flag is enabled
     }
 }
